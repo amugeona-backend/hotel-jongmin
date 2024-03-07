@@ -46,7 +46,7 @@ public class HotelService {
     public List<ProductRoom> findProductRoomByDate(LocalDate date) { // 날짜를 입력해 그날 예약가능한 방 조회?
         return hotel.getProductRooms().stream()
                 .filter(room -> room.getReservedDate().equals(date))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public User findUserByPhoneNumber(String phoneNumber) { // 핸드폰번호로 고객 확인 (회원가입 여부)
@@ -58,19 +58,19 @@ public class HotelService {
     public List<Reservation> findReservationByDate(LocalDate date) { // 예약날짜로 예약 확인
         return hotel.getReservations().stream()
                 .filter(reservation -> reservation.productRoom().getReservedDate().equals(date))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public List<Reservation> findReservationByName(String name) { // 예약자명으로 예약 확인
         return hotel.getReservations().stream()
                 .filter(reservation -> reservation.userName().equals(name))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public List<Reservation> findReservationByPhoneNumber(String phoneNumber) { // 전화번호로 예약 확인
         return hotel.getReservations().stream()
                 .filter(reservation -> reservation.userPhoneNumber().equals(phoneNumber))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public void addReservation(Reservation reservation) { // 예약 등록
@@ -110,7 +110,7 @@ public class HotelService {
         return hotel.getProductRooms().stream()
                 .filter(room -> room.getReservedDate().equals(date))
                 .filter(empty -> !empty.isReserved())
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public boolean findReservationByExistingName(String name) { // 이름으로 예약확인
