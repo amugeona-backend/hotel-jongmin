@@ -23,7 +23,7 @@ public class User {
         return Cash;
     }
 
-    void setCash(int Cash) {
+    public void setCash(int Cash) {
         this.Cash = Cash;
     }
 }

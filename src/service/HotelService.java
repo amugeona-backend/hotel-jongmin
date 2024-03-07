@@ -106,4 +106,25 @@ public class HotelService {
         return hotel.getAsset();
     }
 
+    public List<ProductRoom> findEmptyProductRoomByDate(LocalDate date) { // 날짜입력으로 빈방 확인
+        return hotel.getProductRooms().stream()
+                .filter(room -> room.getReservedDate().equals(date))
+                .filter(empty -> !empty.isReserved())
+                .collect(Collectors.toList());
+    }
+
+    public boolean findReservationByExistingName(String name) { // 이름으로 예약확인
+        return hotel.getReservations().stream()
+                .anyMatch(reservation -> reservation.userName().equals(name));
+    }
+
+    public boolean findReservationByExistingPhoneNumber(String phone) { // 핸드폰 번호로 예약확인
+        return hotel.getReservations().stream()
+                .anyMatch(reservation -> reservation.userPhoneNumber().equals(phone));
+    }
+
+    public boolean findReservationByExistingDate(LocalDate date) { // 날짜로 예약확인
+        return hotel.getReservations().stream()
+                .anyMatch(reservation -> reservation.productRoom().getReservedDate().equals(date));
+    }
 }
