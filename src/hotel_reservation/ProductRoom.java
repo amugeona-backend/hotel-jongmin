@@ -8,7 +8,6 @@ public class ProductRoom extends Room {
     private final LocalDate reservedDate; // 예약 날짜
     private boolean isReserved = false; // 예약 확인 여부
 
-
     public ProductRoom(RoomType roomType, int cost, int roomNuber, LocalDate reservedDate) {
         super(roomType, cost);
         this.roomNumber = roomNuber;

@@ -11,7 +11,7 @@ public class Room {
         this.cost = cost;
     }
 
-    public RoomType getroomtype() {
+    public RoomType getRoomType() {
         return roomtype;
     }
 

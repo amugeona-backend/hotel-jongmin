@@ -36,7 +36,7 @@ public class HotelService {
         return hotel.getPassword();
     }
 
-    public List<LocalDate> findAvailableDays() {
+    public List<LocalDate> findAvailableDays() { // 빈방 찾기
         return hotel.getProductRooms().stream()
                 .map(ProductRoom::getReservedDate)
                 .distinct()
